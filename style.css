@@ -21,8 +21,33 @@ body {
   color: var(--color-text);
 }
 
+.spacer {
+  height: 6vh;
+}
+
 .bold {
   font-weight: 700;
+}
+
+.stor-tekst {
+  font-weight: 500;
+  font-size: 4vh;
+  margin: 2vw 4vw;
+  color: var(--color-text);
+}
+
+.giga-tekst {
+  font-weight: 700;
+  font-size: 10vh;
+  margin: 2vw 4vw;
+  color: var(--color-text);
+}
+
+.langtekst {
+  font-weight: 500;
+  font-size: 4vh;
+  margin: 2vw 4vw;
+  color: var(--color-text);
 }
 
 a {
@@ -38,7 +63,7 @@ a:hover {
   display: none;
 }
 
-/* Nav */
+/* navigasjon */
 
 nav {
   position: sticky;
@@ -54,7 +79,7 @@ nav {
   background-color: var(--color-bg-accent-blue);
 }
 
-#centrenavtext {
+#nav-innhold {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -75,7 +100,7 @@ h1 {
   text-align: left;
 }
 
-#hamburgermenu {
+#meny-knapp {
   height: 100%;
   width: 12vh;
   border-radius: 0;
@@ -95,7 +120,7 @@ h1 {
   top: 0;
   bottom: 0;
 }
-#hamburgermenu::before {
+#meny-knapp::before {
   content: "";
   width: 5vh;
   height: 5vh;
@@ -117,7 +142,192 @@ h1 {
   border: 0;
 }
 
-/* Header */
+/* sidemeny */
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1998;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 500px;
+  max-width: 85vw;
+  height: 100vh;
+  background-color: #1e90ff;
+  z-index: 1999;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.menu-content {
+  padding: 8vh 6vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.close-menu {
+  position: absolute;
+  top: 3vh;
+  right: 4vw;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 5vh;
+  cursor: pointer;
+  width: 6vh;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  padding: 0;
+}
+
+.close-menu:hover {
+  transform: rotate(90deg);
+}
+
+.menu-nav {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4vh;
+  overflow-y: auto;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.menu-list li {
+  margin-bottom: 2vh;
+}
+
+.menu-list a {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 4.5vh;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 1vh 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-list a:hover {
+  transform: translateX(10px);
+  opacity: 0.8;
+}
+
+.menu-footer {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  padding-top: 3vh;
+  margin-top: 1vh;
+}
+
+.menu-footer h3 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 2vh;
+  font-weight: 600;
+  color: #fff;
+  margin: 2vh 0 0.5vh 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.menu-footer p {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.8vh;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 2vh 0;
+  line-height: 1.5;
+}
+
+.menu-footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.menu-footer a:hover {
+  opacity: 0.7;
+}
+
+.menu-social {
+  display: flex;
+  gap: 2vh;
+  margin-top: 2vh;
+}
+
+.menu-social a {
+  display: inline-flex;
+  width: 5vh;
+  height: 5vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-social a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 3vh;
+  height: 3vh;
+  background-color: #fff;
+  display: block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.social-icon--github {
+  mask-image: url("assets/icons/github.svg");
+  -webkit-mask-image: url("assets/icons/github.svg");
+}
+
+.social-icon--linkedin {
+  mask-image: url("assets/icons/linkedin.svg");
+  -webkit-mask-image: url("assets/icons/linkedin.svg");
+}
+
+.social-icon--youtube {
+  mask-image: url("assets/icons/youtube.svg");
+  -webkit-mask-image: url("assets/icons/youtube.svg");
+}
+
+/* header */
 
 header {
   width: 100%;
@@ -129,12 +339,12 @@ header {
   z-index: 10;
 }
 
-#headersection {
+#header-innhold {
   width: 50%;
   background-color: var(--color-bg-accent);
 }
 
-#headerimg {
+#header-video {
   width: 50%;
   height: auto;
   -webkit-user-drag: none;
@@ -145,7 +355,7 @@ header {
   object-fit: cover;
 }
 
-#headertop {
+#header-tittel {
   font-weight: 500;
   font-size: 3.5vw;
   line-height: 1.1;
@@ -156,7 +366,7 @@ header {
   margin-top: 3vh;
 }
 
-.headertxt {
+.header-tekst {
   font-weight: 500;
   font-size: 3.5vw;
   line-height: 1.1;
@@ -230,7 +440,7 @@ header {
   -webkit-mask-image: url("assets/icons/youtube.svg");
 }
 
-/* Main content */
+/* hovedinnhold */
 
 .breakup {
   height: 6vh;
@@ -264,13 +474,13 @@ main {
   padding-top: 3vh;
 }
 
-.portfolio-burrito {
+.portfolio-grid {
   column-count: 2;
   column-gap: 2vw;
   margin: 0 3vw;
 }
 
-.portfolio50 {
+.portfolio-kort {
   break-inside: avoid;
   margin: 0 0 2vw;
   position: relative;
@@ -306,6 +516,7 @@ main {
   font-weight: 500;
   color: var(--color-btn-text);
   background-color: var(--color-btn-hover);
+  transition: background-color 0.2s ease;
   border: none;
   border-radius: 0px;
   cursor: pointer;
@@ -316,14 +527,14 @@ main {
   transition: background-color 0.2s ease;
 }
 
-.portfolio-image {
+.portfolio-bilde {
   width: 100%;
   display: block;
   object-fit: cover;
   margin: 0;
 }
 
-.portfolio-image-figcaption {
+.portfolio-beskrivelse {
   position: absolute;
   inset: auto 0 0;
   padding: 1.5vw;
@@ -335,27 +546,27 @@ main {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-.portfolio-image--lang {
+.portfolio-bilde--lang {
   height: 80vw;
 }
 
-.portfolio-image--middels {
+.portfolio-bilde--middels {
   height: 50vw;
 }
 
-.portfolio-image--kort {
+.portfolio-bilde--kort {
   height: 35vw;
 }
 
-.portfolio-image--ekstrakort {
+.portfolio-bilde--ekstrakort {
   height: 28vw;
 }
 
-.image-burrito {
+.bilde-seksjon {
   margin: 0 3vw;
 }
 
-.image100 {
+.bilde-full {
   width: 100%;
   break-inside: avoid;
   margin: 0 0 2vw;
@@ -363,7 +574,7 @@ main {
   overflow: hidden;
 }
 
-.image-image {
+.bilde {
   width: 100%;
   display: block;
   object-fit: cover;
@@ -371,33 +582,964 @@ main {
   height: auto;
 }
 
-.image-60 {
+.bilde-60 {
   width: 59%;
   float: left;
   object-fit: cover;
   margin: 0 1% 0 0;
 }
 
-.image-40 {
+.bilde-40 {
   width: 39%;
   float: right;
   object-fit: cover;
   margin: 0 0 0 1%;
 }
 
-.image-image--stor {
+.bilde--stor {
   height: 60vw;
 }
 
-.image-image--kort {
+.bilde--kort {
   height: 35vw;
 }
 
-.image-image--middels {
+.bilde--middels {
   height: 65vh;
 }
 
 .header-burrito {
   width: 100%;
   margin: 0;
+}
+
+/* kontaktseksjon */
+.contact {
+  margin-top: 4vh;
+  margin-bottom: 8vh;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 3vw;
+  margin: 4vh 4vw;
+  justify-content: center;
+}
+
+.contact-button {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 3vw;
+  font-weight: 500;
+  color: var(--color-btn-text);
+  background-color: var(--color-btn-hover);
+  border: none;
+  cursor: pointer;
+  padding: 8vw 4vw;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3vh;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.contact-button:hover {
+  background-color: #4da6ff;
+}
+
+.contact-button::before {
+  content: "";
+  width: 12vw;
+  height: 12vw;
+  max-width: 150px;
+  max-height: 150px;
+  background-color: currentColor;
+  display: block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+#phone-button::before {
+  mask-image: url("assets/icons/nrk-hardware-mobile.svg");
+  -webkit-mask-image: url("assets/icons/nrk-hardware-mobile.svg");
+}
+
+#email-button::before {
+  mask-image: url("assets/icons/nrk-some-email.svg");
+  -webkit-mask-image: url("assets/icons/nrk-some-email.svg");
+}
+
+/* kontaktvalg (vises etter klikk) */
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-option {
+  width: 92%;
+  max-width: none;
+  padding: 3vw 4vw;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4vw;
+  font-size: 2.5vw;
+}
+
+.contact-option::before {
+  display: none; /* fjern standard ikoner */
+}
+
+.contact-back {
+  background-color: #30363d;
+  padding: 3vw;
+  font-size: 2vw;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-back::before {
+  display: none;
+}
+
+.contact-back:hover {
+  background-color: #484f58;
+}
+
+/* telefon og e-post visning */
+.phone-display,
+.email-display {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  width: 100%;
+}
+
+.phone-number,
+.email-address {
+  background-color: var(--color-bg-accent);
+  padding: 4vw;
+  text-align: center;
+}
+
+.phone-number h3,
+.email-address h3 {
+  font-size: 2.5vw;
+  color: var(--color-text);
+  margin: 0 0 2vh 0;
+  font-weight: 500;
+}
+
+.contact-phone-link,
+.contact-email-link {
+  display: inline-block;
+  padding: 4vw;
+  font-size: 3vw;
+  font-weight: 600;
+  color: var(--color-btn-text);
+  background-color: #1e90ff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-phone-link::before,
+.contact-email-link::before {
+  display: none; /* fjern ::before for lenker */
+}
+
+.contact-phone-link:hover,
+.contact-email-link:hover {
+  background-color: #4da6ff;
+}
+
+/* footer */
+
+.footer {
+  width: 100%;
+  min-height: 70vh;
+  padding-top: 10vh;
+  padding-bottom: 8vh;
+  background-color: var(--color-bg-accent);
+  color: var(--color-text-accent);
+  font-size: 1.5vh;
+  border-top: 5px solid var(--color-bg-accent-blue);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer section {
+  position: relative;
+  flex: 1;
+}
+
+footer section h3 {
+  text-align: center;
+  margin: -15vh;
+  font-size: 15vw;
+  font-family: "comic-sans-ms", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  opacity: 0.3;
+}
+
+/* footerbilde til høyre */
+.footer-image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 60vh;
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
+  opacity: 1;
+}
+
+.footer-image-right {
+  position: absolute;
+  right: -150px;
+  bottom: 0;
+  height: 60vh;
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
+  opacity: 1;
+}
+
+/* mailchimp nyhetsbrev */
+#mc_embed_shell {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 4vw;
+}
+
+#mc_embed_signup {
+  background-color: var(--color-bg-accent-blue);
+  padding: 4vh 3vw;
+  border-radius: 0;
+}
+
+#mc_embed_signup h4 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 3vh;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 2vh 0;
+  text-align: center;
+}
+
+#mc_embed_signup label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.8vh;
+  font-weight: 500;
+  color: var(--color-text);
+  display: block;
+  margin-bottom: 1vh;
+}
+
+#mc_embed_signup .asterisk {
+  color: var(--color-link);
+  font-weight: bold;
+}
+
+#mc_embed_signup input[type="email"] {
+  width: 100%;
+  padding: 1.5vh 2vh;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 2vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#mc_embed_signup input[type="email"]:focus {
+  border-color: var(--color-link);
+}
+
+#mc_embed_signup input[type="email"]::placeholder {
+  color: var(--color-text-accent);
+}
+
+#mc_embed_signup .mc-field-group {
+  margin-bottom: 2vh;
+}
+
+#mc_embed_signup input[type="submit"] {
+  width: 100%;
+  padding: 1.8vh 3vh;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 2.2vh;
+  font-weight: 600;
+  color: var(--color-btn-text);
+  background-color: #1e90ff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1vh;
+}
+
+#mc_embed_signup input[type="submit"]:hover {
+  background-color: #4da6ff;
+}
+
+#mc_embed_signup .response {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.6vh;
+  margin-top: 1vh;
+  padding: 1vh;
+  text-align: center;
+}
+
+#mce-error-response {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+#mce-success-response {
+  color: #51cf66;
+  background-color: rgba(81, 207, 102, 0.1);
+}
+
+/* gradient overlay for å fade tekst mot bunn */
+footer section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-bg-accent) 95%
+  );
+  pointer-events: none;
+}
+
+/* bildeoptimasering: lazy loading blur */
+.zoomable-image {
+  cursor: zoom-in;
+  transition: opacity 0.3s ease;
+}
+
+.zoomable-image.loading {
+  opacity: 0.6;
+  filter: blur(5px);
+}
+
+.zoomable-image.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* lightbox for fullstørrelse bilder */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  background: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+  color: var(--color-link-hover);
+}
+
+.lightbox-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 24px;
+}
+
+/* mobil responsiv */
+
+/* nettbrett og mindre (under 1024px) */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 5vh;
+  }
+
+  .nav-title {
+    margin-left: 1vw;
+  }
+
+  #meny-knapp {
+    width: 10vh;
+  }
+
+  #header-tittel,
+  .header-tekst {
+    font-size: 4vw;
+  }
+
+  .social-link {
+    width: 7vh;
+    height: 7vh;
+  }
+
+  .social-link::before {
+    width: 4vh;
+    height: 4vh;
+  }
+}
+
+/* mobil landskap og mindre nettbrett (under 768px) */
+@media (max-width: 768px) {
+  nav {
+    height: 10vh;
+    padding: 0 1vw;
+  }
+
+  h1 {
+    font-size: 4vh;
+    margin-left: 1vw;
+  }
+
+  #meny-knapp {
+    width: 10vh;
+  }
+
+  #meny-knapp::before {
+    width: 4vh;
+    height: 4vh;
+  }
+
+  /* stable header vertikalt på nettbrett */
+  header {
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    top: 0;
+  }
+
+  #header-innhold {
+    width: 100%;
+    padding-bottom: 4vh;
+  }
+
+  #header-video {
+    width: 100%;
+    height: 60vw;
+    object-fit: cover;
+  }
+
+  #header-tittel,
+  .header-tekst {
+    font-size: 5vw;
+    margin-left: 6vw;
+    margin-right: 6vw;
+  }
+
+  .social-links {
+    margin-top: 4vh;
+    margin-left: 6vw;
+  }
+
+  .social-link {
+    width: 6vh;
+    height: 6vh;
+  }
+
+  .social-link::before {
+    width: 3.5vh;
+    height: 3.5vh;
+  }
+
+  /* enkeltkolonne layout for portfolio */
+  .portfolio-grid {
+    column-count: 1;
+    margin: 0 4vw;
+  }
+
+  .portfolio-kort {
+    margin-bottom: 4vw;
+  }
+
+  .portfolio-project-figcaption {
+    height: auto;
+    min-height: 15vw;
+    padding: 3vw;
+  }
+
+  .portfolio-project-figcaption h3 {
+    font-size: 5vw;
+    margin-left: 0;
+  }
+
+  .portfolio-project-figcaption a {
+    font-size: 3.5vw;
+    padding: 2vw 3vw;
+    margin: 0;
+  }
+
+  .portfolio-beskrivelse {
+    font-size: 3.5vw;
+    padding: 3vw;
+  }
+
+  .portfolio-bilde--lang,
+  .portfolio-bilde--middels,
+  .portfolio-bilde--kort,
+  .portfolio-bilde--ekstrakort {
+    height: auto;
+    aspect-ratio: 4/3;
+  }
+
+  .bilde-seksjon {
+    margin: 0 4vw;
+  }
+
+  .bilde--stor,
+  .bilde--kort,
+  .bilde--middels {
+    height: auto;
+    aspect-ratio: 16/10;
+  }
+
+  .breakup {
+    margin-left: 6vw;
+    margin-right: 4vw;
+    font-size: 3.5vh;
+  }
+
+  .breakup-line {
+    margin-left: 3vw;
+    margin-right: 6vw;
+  }
+
+  .giga-tekst {
+    font-size: 50vh;
+    margin: 3vw 6vw;
+  }
+
+  .stor-tekst {
+    font-size: 3.5vh;
+    margin: 2vw 6vw;
+  }
+
+  .contact h3 {
+    font-size: 3.5vw;
+    margin: 2vw 6vw;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    margin: 3vh 6vw;
+    gap: 3vh;
+  }
+
+  .contact-button {
+    width: 100%;
+    max-width: none;
+    font-size: 4.5vw;
+    padding: 10vw 4vw;
+  }
+
+  .contact-button::before {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  /* Contact options responsive */
+  .contact-option {
+    padding: 8vw 6vw;
+    gap: 5vw;
+    font-size: 4vw;
+  }
+
+  .contact-back {
+    padding: 4vw;
+    font-size: 3.5vw;
+  }
+
+  .phone-number h3,
+  .email-address h3 {
+    font-size: 4vw;
+  }
+
+  .contact-phone-link,
+  .contact-email-link {
+    font-size: 4.5vw;
+    padding: 5vw;
+  }
+
+  /* footerjusteringer for nettbrett */
+  #mc_embed_shell {
+    max-width: 600px;
+    padding: 0 6vw;
+  }
+
+  #mc_embed_signup {
+    padding: 3vh 4vw;
+  }
+
+  .footer-image {
+    height: 50vh;
+  }
+
+  /* menyjusteringer for nettbrett */
+  .side-menu {
+    width: 350px;
+  }
+
+  .menu-list a {
+    font-size: 4vh;
+  }
+}
+
+/* mobil portrett (under 480px) */
+@media (max-width: 480px) {
+  nav {
+    height: 8vh;
+  }
+
+  h1 {
+    font-size: 3.5vh;
+    margin-left: 0.5vw;
+  }
+
+  #meny-knapp {
+    width: 8vh;
+  }
+
+  #meny-knapp::before {
+    width: 3.5vh;
+    height: 3.5vh;
+  }
+
+  #header-tittel,
+  .header-tekst {
+    font-size: 6vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    margin-bottom: 2vh;
+  }
+
+  #header-tittel {
+    margin-top: 4vh;
+  }
+
+  .social-links {
+    margin-top: 3vh;
+    margin-left: 8vw;
+  }
+
+  .social-list {
+    gap: 3vw;
+  }
+
+  .social-link {
+    width: 12vw;
+    height: 12vw;
+    min-width: 50px;
+    min-height: 50px;
+  }
+
+  .social-link::before {
+    width: 7vw;
+    height: 7vw;
+    min-width: 30px;
+    min-height: 30px;
+  }
+
+  #header-video {
+    height: 70vw;
+  }
+
+  main {
+    padding-top: 2vh;
+  }
+
+  .breakup {
+    margin-left: 8vw;
+    margin-bottom: 4vh;
+    font-size: 3vh;
+  }
+
+  .breakup h2 {
+    font-size: 1em;
+    white-space: nowrap;
+  }
+
+  .breakup-line {
+    margin-left: 4vw;
+    margin-right: 8vw;
+    height: 3px;
+  }
+
+  .portfolio-grid {
+    margin: 0 5vw;
+  }
+
+  .portfolio-kort {
+    margin-bottom: 6vw;
+  }
+
+  .portfolio-project-figcaption {
+    min-height: 18vw;
+    padding: 4vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2vw;
+  }
+
+  .portfolio-project-figcaption h3 {
+    font-size: 6vw;
+  }
+
+  .portfolio-project-figcaption a {
+    font-size: 4vw;
+    padding: 2.5vw 4vw;
+    margin-top: 0;
+  }
+
+  .portfolio-beskrivelse {
+    font-size: 4vw;
+    padding: 4vw;
+    line-height: 1.5;
+  }
+
+  .bilde-seksjon {
+    margin: 0 5vw;
+  }
+
+  .bilde-full {
+    margin-bottom: 4vw;
+  }
+
+  /* stable delte bilder vertikalt på små mobiler */
+  .bilde-60,
+  .bilde-40 {
+    width: 100%;
+    float: none;
+    margin: 0 0 4vw 0;
+  }
+
+  .giga-tekst {
+    font-size: 4vh;
+    margin: 4vw 8vw;
+  }
+
+  .stor-tekst {
+    font-size: 3vh;
+    margin: 3vw 8vw;
+  }
+
+  .contact h3 {
+    font-size: 4.5vw;
+    margin: 3vw 8vw;
+    line-height: 1.5;
+  }
+
+  .contact-buttons {
+    margin: 3vh 8vw;
+  }
+
+  .contact-button {
+    font-size: 5vw;
+    padding: 12vw 4vw;
+    gap: 2vh;
+  }
+
+  .contact-button::before {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  /* Contact options mobile responsive */
+  .contact-option {
+    padding: 10vw 6vw;
+    gap: 6vw;
+    font-size: 5vw;
+  }
+
+  .contact-back {
+    padding: 5vw;
+    font-size: 4.5vw;
+  }
+
+  .phone-number h3,
+  .email-address h3 {
+    font-size: 5vw;
+  }
+
+  .contact-phone-link,
+  .contact-email-link {
+    font-size: 5.5vw;
+    padding: 6vw;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox-content {
+    max-width: 98%;
+    max-height: 98%;
+  }
+
+  /* footerjusteringer for mobil */
+  footer {
+    padding-bottom: 6vh;
+  }
+
+  #mc_embed_shell {
+    padding: 0 8vw;
+  }
+
+  #mc_embed_signup {
+    padding: 3vh 5vw;
+  }
+
+  #mc_embed_signup h4 {
+    font-size: 2.5vh;
+  }
+
+  #mc_embed_signup label {
+    font-size: 1.6vh;
+  }
+
+  #mc_embed_signup input[type="email"],
+  #mc_embed_signup input[type="submit"] {
+    font-size: 1.8vh;
+  }
+
+  .footer-image {
+    height: 40vh;
+    opacity: 0.5;
+  }
+
+  /* menyjusteringer for mobil */
+  .side-menu {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .menu-content {
+    padding: 6vh 8vw;
+  }
+
+  .menu-list a {
+    font-size: 3.5vh;
+  }
+
+  .menu-footer h3 {
+    font-size: 1.8vh;
+  }
+
+  .menu-footer p {
+    font-size: 1.6vh;
+  }
+
+  .close-menu {
+    font-size: 4vh;
+  }
+}
+
+/* ekstra små enheter (under 360px) */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 3vh;
+  }
+
+  #header-tittel,
+  .header-tekst {
+    font-size: 7vw;
+  }
+
+  .social-link {
+    width: 14vw;
+    height: 14vw;
+  }
+
+  .social-link::before {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .portfolio-project-figcaption h3 {
+    font-size: 7vw;
+  }
+
+  .portfolio-project-figcaption a {
+    font-size: 4.5vw;
+  }
+
+  .portfolio-beskrivelse {
+    font-size: 4.5vw;
+  }
+
+  .contact-button {
+    font-size: 5.5vw;
+  }
+
+  .contact-button::before {
+    width: 28vw;
+    height: 28vw;
+  }
+
+  .giga-tekst {
+    font-size: 3.5vh;
+  }
 }

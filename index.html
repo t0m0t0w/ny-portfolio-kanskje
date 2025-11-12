@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nb">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@
     <script src="https://unpkg.com/lenis@1.3.13/dist/lenis.min.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://use.typekit.net/cjc7xhz.css">
 </head>
 
 <body>
@@ -18,18 +19,48 @@
     <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js"
         charset="utf-8"></script>
     <nav>
-        <button id="hamburgermenu" aria-label="Toggle menu" title="Menu" aria-expanded="false">
-            <span class="sr-only">Menu</span>
+        <button id="meny-knapp" aria-label="Åpne meny" title="Meny" aria-expanded="false">
+            <span class="sr-only">Meny</span>
         </button>
-        <div id="centrenavtext">
+        <div id="nav-innhold">
             <h1 class="nav-title">hei hei, jeg heter hermann roos</h1>
         </div>
     </nav>
+
+    <!-- Slide-in Menu -->
+    <div id="side-menu" class="side-menu">
+        <div class="menu-content">
+            <button id="close-menu" class="close-menu" aria-label="Lukk meny">&times;</button>
+            <div class="menu-nav">
+                <ul class="menu-list">
+                    <li><a href="/../../../../../">hjem</a></li>
+                    <li><a href="/../../../../../prosjekter/">prosjekter</a></li>
+                    <li><a href="#foto">cv</a></li>
+                </ul>
+            </div>
+            <div class="menu-footer">
+                <div class="menu-social">
+                    <a href="https://github.com/t0m0t0w/" target="_blank" rel="noopener" aria-label="GitHub">
+                        <span class="social-icon social-icon--github"></span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/hermann-roos/" target="_blank" rel="noopener"
+                        aria-label="LinkedIn">
+                        <span class="social-icon social-icon--linkedin"></span>
+                    </a>
+                    <a href="https://www.youtube.com/@tomotow" target="_blank" rel="noopener" aria-label="YouTube">
+                        <span class="social-icon social-icon--youtube"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="menu-overlay" class="menu-overlay"></div>
+
     <header>
-        <section id="headersection">
-            <h2 id="headertop">er nåværende nestleder i blålange,</h2>
-            <h2 class="headertxt">med-stifter av fredrikstads største casparcg fan klubb</h2>
-            <h2 class="headertxt">og en kundeklubb elsker</h2>
+        <section id="header-innhold">
+            <h2 id="header-tittel">er nåværende nestleder i blålange,</h2>
+            <h2 class="header-tekst">med-stifter av fredrikstads største casparcg fan klubb</h2>
+            <h2 class="header-tekst">og en kundeklubb elsker</h2>
             <section class="social-links" aria-label="Sosiale lenker">
                 <ul class="social-list" role="list">
                     <li>
@@ -53,7 +84,7 @@
                 </ul>
             </section>
         </section>
-        <img src="./assets/img/mal-for-header-7-ifzwgFk9X6CKlByBScljDA.avif" alt="" id="headerimg">
+        <video src="./assets/img/202511122201.mp4" id="header-video" autoplay muted loop playsinline></video>
     </header>
 
     <main>
@@ -61,30 +92,35 @@
             <h2>design</h2>
             <div class="breakup-line"></div>
         </div>
-        <section class="portfolio-burrito">
-            <article class="portfolio50">
-                <img class="portfolio-image portfolio-image--ekstrakort"
-                    src="./assets/img/2f10411c-c756-4639-b7ec-5d9873df88f2.webp" alt="Portfolio Item">
+        <section class="portfolio-grid">
+            <article class="portfolio-kort">
+                <img class="portfolio-bilde portfolio-bilde--ekstrakort zoomable-image"
+                    src="./assets/img/Stor typeface.png" data-full="./assets/img/Stor typeface.png" alt="Blålange logo"
+                    loading="lazy">
                 <figcaption class="portfolio-project-figcaption">
-                    <h3 class="portfolio-caption">blålange</h3>
-                    <a href="./assets/icons/github.svg">les mer</a>
+                    <h3 class="portfolio-tittel">blålange</h3>
+                    <a href="/prosjekter/blalange/">les mer</a>
                 </figcaption>
             </article>
-            <article class="portfolio50">
-                <img class="portfolio-image portfolio-image--lang" src="./assets/img/9549606.jpg" alt="Portfolio Item">
-                <figcaption class="portfolio-image-figcaption">utvikling av visuell identitet og markedsføring for
+            <article class="portfolio-kort">
+                <img class="portfolio-bilde portfolio-bilde--lang zoomable-image"
+                    src="./assets/img/Artboard 1_1petter.png" data-full="./assets/img/Artboard 1_1petter.png"
+                    alt="Blålange visuell identitet" loading="lazy">
+                <figcaption class="portfolio-beskrivelse">utvikling av visuell identitet og markedsføring for
                     blålange</figcaption>
             </article>
-            <article class="portfolio50">
-                <img class="portfolio-image portfolio-image--lang" src="./assets/img/else-nett_size-large.jpg"
-                    alt="Portfolio Item">
-                <figcaption class="portfolio-image-figcaption">merkevare-utvikling, research og produkt-design for <a
+            <article class="portfolio-kort">
+                <img class="portfolio-bilde portfolio-bilde--lang zoomable-image"
+                    src="./assets/img/3c31a03d-acbe-4fda-be23-d136bead0401.webp"
+                    data-full="./assets/img/3c31a03d-acbe-4fda-be23-d136bead0401.webp" alt="Blålange shop design"
+                    loading="lazy">
+                <figcaption class="portfolio-beskrivelse">merkevare-utvikling, research og produkt-design for <a
                         href="https://shop.blalange.org">shop.blalange.org</a></figcaption>
             </article>
-            <article class="portfolio50">
-                <img class="portfolio-image portfolio-image--kort" src="./assets/img/68562068.webp"
-                    alt="Portfolio Item">
-                <figcaption class="portfolio-image-figcaption">visuelt-design, infrastruktur og utvikling for blålange
+            <article class="portfolio-kort">
+                <img class="portfolio-bilde portfolio-bilde--kort zoomable-image" src="./assets/img/Untitled design.png"
+                    data-full="./assets/img/Untitled design.png" alt="Blålange TV design" loading="lazy">
+                <figcaption class="portfolio-beskrivelse">visuelt-design, infrastruktur og utvikling for blålange
                     tv</figcaption>
             </article>
         </section>
@@ -92,21 +128,73 @@
             <h2>foto</h2>
             <div class="breakup-line"></div>
         </div>
-        <section class="image-burrito">
-            <article class="image100">
-                <img class="image-image image-image--kort" src="./assets/img/Ultranær.jpg" alt="Portfolio Item">
+        <section class="bilde-seksjon">
+            <article class="bilde-full">
+                <img class="bilde bilde--kort zoomable-image" src="./assets/img/Ultranær.jpg"
+                    data-full="./assets/img/Ultranær.jpg" alt="Nærbilde fotografi" loading="lazy">
             </article>
-            <article class="image100">
-                <img class="image-60 image-image--stor" src="./assets/img/Fin Himmel.jpg" alt="Portfolio Item">
-                <img class="image-40 image-image--stor" src="./assets/img/Komposisjon Rule of thirds.jpg" alt="">
+            <article class="bilde-full">
+                <img class="bilde-60 bilde--stor zoomable-image" src="./assets/img/Fin Himmel.jpg"
+                    data-full="./assets/img/Fin Himmel.jpg" alt="Himmel fotografi" loading="lazy">
+                <img class="bilde-40 bilde--stor zoomable-image" src="./assets/img/Komposisjon Rule of thirds.jpg"
+                    data-full="./assets/img/Komposisjon Rule of thirds.jpg" alt="Komposisjonsfoto" loading="lazy">
             </article>
-            <article class="image100">
-                <img class="image-image image-image--stor" src="./assets/img/Ultratotal.jpg" alt="">
+            <article class="bilde-full">
+                <img class="bilde bilde--stor zoomable-image" src="./assets/img/Ultratotal.jpg"
+                    data-full="./assets/img/Ultratotal.jpg" alt="Landskapsfoto" loading="lazy">
+            </article>
         </section>
         <section class="contact">
-            <h2>la oss ta en prat</h2>
-            <a href="mailto:hermann1509@gmail.com" class="contact-link">
+            <h2 class="giga-tekst">kontakt meg</h2>
+            <section class="contact-buttons">
+                <div class="contact-button" id="phone-button">ring meg</div>
+                <div class="contact-button" id="email-button">send e-post</div>
+
+            </section>
         </section>
+        <footer>
+            <section class="footer">
+                <section>
+                    <h3>hermann roos</h3>
+                    <h3>hermann roos</h3>
+                    <h3>hermann roos</h3>
+                </section>
+                <img src="./assets/img/Adobe Express - file.png" alt="Dekorativt bilde" class="footer-image">
+                <img src="./assets/img/Adobe Express - file (4).png" alt="Dekorativt bilde" class="footer-image-right">
+                <!-- Mailchimp Newsletter Signup -->
+                <div id="mc_embed_shell">
+                    <div id="mc_embed_signup">
+                        <form
+                            action="https://gmail.us11.list-manage.com/subscribe/post?u=9ca1113adde39a59fb25d6c7e&amp;id=9332b3bb43&amp;f_id=0085c7e3f0"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate" target="_self" novalidate="">
+                            <div id="mc_embed_signup_scroll">
+                                <h4>bli med i min private blogg</h4>
+                                <div class="mc-field-group">
+                                    <label for="mce-EMAIL">e-postadresse <span class="asterisk">*</span></label>
+                                    <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required=""
+                                        value="" placeholder="din@epost.no">
+                                </div>
+                                <div id="mce-responses" class="clear foot">
+                                    <div class="response" id="mce-error-response" style="display: none;"></div>
+                                    <div class="response" id="mce-success-response" style="display: none;"></div>
+                                </div>
+                                <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                    <input type="text" name="b_9ca1113adde39a59fb25d6c7e_9332b3bb43" tabindex="-1"
+                                        value="">
+                                </div>
+                                <div class="optionalParent">
+                                    <div class="clear foot">
+                                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"
+                                            value="abonner">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </footer>
     </main>
 </body>
 
