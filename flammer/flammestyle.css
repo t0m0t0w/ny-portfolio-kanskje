@@ -126,8 +126,8 @@ h1 {
   height: 5vh;
   display: block;
   background-color: currentColor;
-  -webkit-mask: url("assets/icons/nrk-list.svg") center / contain no-repeat;
-  mask: url("assets/icons/nrk-list.svg") center / contain no-repeat;
+  -webkit-mask: url("./../assets/icons/nrk-list.svg") center / contain no-repeat;
+  mask: url("./../assets/icons/nrk-list.svg") center / contain no-repeat;
 }
 
 .sr-only {
@@ -646,7 +646,7 @@ main {
 }
 
 .contact-button:hover {
-  background-color: #4da6ff;
+  background-color: #ff4d4dff;
 }
 
 .contact-button::before {
@@ -701,7 +701,7 @@ main {
 }
 
 .contact-back {
-  background-color: #30363d;
+  background-color: #3d3030ff;
   padding: 3vw;
   font-size: 2vw;
   justify-content: center;
@@ -714,7 +714,7 @@ main {
 }
 
 .contact-back:hover {
-  background-color: #484f58;
+  background-color: #584848ff;
 }
 
 /* telefon og e-post visning */
@@ -748,7 +748,7 @@ main {
   font-size: 3vw;
   font-weight: 600;
   color: var(--color-btn-text);
-  background-color: #1e90ff;
+  background-color: #ff1e1eff;
   text-decoration: none;
   transition: background-color 0.3s ease;
   width: 100%;
@@ -762,7 +762,7 @@ main {
 
 .contact-phone-link:hover,
 .contact-email-link:hover {
-  background-color: #4da6ff;
+  background-color: #ff4d4dff;
 }
 
 /* footer */
@@ -889,7 +889,7 @@ footer section h3 {
   font-size: 2.2vh;
   font-weight: 600;
   color: var(--color-btn-text);
-  background-color: #1e90ff;
+  background-color: #ff1e1eff;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -897,7 +897,7 @@ footer section h3 {
 }
 
 #mc_embed_signup input[type="submit"]:hover {
-  background-color: #4da6ff;
+  background-color: #ff4d4dff;
 }
 
 #mc_embed_signup .response {
