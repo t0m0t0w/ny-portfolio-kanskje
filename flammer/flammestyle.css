@@ -313,18 +313,18 @@ h1 {
 }
 
 .social-icon--github {
-  mask-image: url("assets/icons/github.svg");
-  -webkit-mask-image: url("assets/icons/github.svg");
+  mask-image: url("./../assets/icons/github.svg");
+  -webkit-mask-image: url("./../assets/icons/github.svg");
 }
 
 .social-icon--linkedin {
-  mask-image: url("assets/icons/linkedin.svg");
-  -webkit-mask-image: url("assets/icons/linkedin.svg");
+  mask-image: url("./../assets/icons/linkedin.svg");
+  -webkit-mask-image: url("./../assets/icons/linkedin.svg");
 }
 
 .social-icon--youtube {
-  mask-image: url("assets/icons/youtube.svg");
-  -webkit-mask-image: url("assets/icons/youtube.svg");
+  mask-image: url("./../assets/icons/youtube.svg");
+  -webkit-mask-image: url("./../assets/icons/youtube.svg");
 }
 
 /* header */
@@ -426,18 +426,18 @@ header {
 }
 
 .social-link--github::before {
-  mask-image: url("assets/icons/github.svg");
-  -webkit-mask-image: url("assets/icons/github.svg");
+  mask-image: url("./../assets/icons/github.svg");
+  -webkit-mask-image: url("./../assets/icons/github.svg");
 }
 
 .social-link--linkedin::before {
-  mask-image: url("assets/icons/linkedin.svg");
-  -webkit-mask-image: url("assets/icons/linkedin.svg");
+  mask-image: url("./../assets/icons/linkedin.svg");
+  -webkit-mask-image: url("./../assets/icons/linkedin.svg");
 }
 
 .social-link--youtube::before {
-  mask-image: url("assets/icons/youtube.svg");
-  -webkit-mask-image: url("assets/icons/youtube.svg");
+  mask-image: url("./../assets/icons/youtube.svg");
+  -webkit-mask-image: url("./../assets/icons/youtube.svg");
 }
 
 /* hovedinnhold */
@@ -666,13 +666,13 @@ main {
 }
 
 #phone-button::before {
-  mask-image: url("assets/icons/nrk-hardware-mobile.svg");
-  -webkit-mask-image: url("assets/icons/nrk-hardware-mobile.svg");
+  mask-image: url("./../assets/icons/nrk-hardware-mobile.svg");
+  -webkit-mask-image: url("./../assets/icons/nrk-hardware-mobile.svg");
 }
 
 #email-button::before {
-  mask-image: url("assets/icons/nrk-some-email.svg");
-  -webkit-mask-image: url("assets/icons/nrk-some-email.svg");
+  mask-image: url("./../assets/icons/nrk-some-email.svg");
+  -webkit-mask-image: url("./../assets/icons/nrk-some-email.svg");
 }
 
 /* kontaktvalg (vises etter klikk) */
