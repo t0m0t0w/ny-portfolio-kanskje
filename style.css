@@ -304,27 +304,21 @@ h1 {
   height: 3vh;
   background-color: #fff;
   display: block;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
 }
 
 .social-icon--github {
-  mask-image: url("assets/icons/github.svg");
-  -webkit-mask-image: url("assets/icons/github.svg");
+  -webkit-mask: url("assets/icons/github.svg") center / contain no-repeat;
+  mask: url("assets/icons/github.svg") center / contain no-repeat;
 }
 
 .social-icon--linkedin {
-  mask-image: url("assets/icons/linkedin.svg");
-  -webkit-mask-image: url("assets/icons/linkedin.svg");
+  -webkit-mask: url("assets/icons/linkedin.svg") center / contain no-repeat;
+  mask: url("assets/icons/linkedin.svg") center / contain no-repeat;
 }
 
 .social-icon--youtube {
-  mask-image: url("assets/icons/youtube.svg");
-  -webkit-mask-image: url("assets/icons/youtube.svg");
+  -webkit-mask: url("assets/icons/youtube.svg") center / contain no-repeat;
+  mask: url("assets/icons/youtube.svg") center / contain no-repeat;
 }
 
 /* header */
@@ -412,12 +406,6 @@ header {
   height: 5vh;
   background-color: currentColor;
   display: block;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
 }
 
 .social-link:hover,
@@ -426,18 +414,18 @@ header {
 }
 
 .social-link--github::before {
-  mask-image: url("assets/icons/github.svg");
-  -webkit-mask-image: url("assets/icons/github.svg");
+  -webkit-mask: url("assets/icons/github.svg") center / contain no-repeat;
+  mask: url("assets/icons/github.svg") center / contain no-repeat;
 }
 
 .social-link--linkedin::before {
-  mask-image: url("assets/icons/linkedin.svg");
-  -webkit-mask-image: url("assets/icons/linkedin.svg");
+  -webkit-mask: url("assets/icons/linkedin.svg") center / contain no-repeat;
+  mask: url("assets/icons/linkedin.svg") center / contain no-repeat;
 }
 
 .social-link--youtube::before {
-  mask-image: url("assets/icons/youtube.svg");
-  -webkit-mask-image: url("assets/icons/youtube.svg");
+  -webkit-mask: url("assets/icons/youtube.svg") center / contain no-repeat;
+  mask: url("assets/icons/youtube.svg") center / contain no-repeat;
 }
 
 /* hovedinnhold */
