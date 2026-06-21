@@ -234,7 +234,7 @@ phoneButton.addEventListener("click", () => {
         numberDisplay.innerHTML = `
         <div class="phone-number">
           <h3>ring meg på:</h3>
-          <a href="tel:+18088004842" class="contact-button contact-phone-link">+1 808 800 4842</a>
+          <a href="tel:46431343" class="contact-button contact-phone-link">46431343</a>
         </div>
         <div class="contact-button contact-back" id="back-from-number">
           <span>← Tilbake</span>
