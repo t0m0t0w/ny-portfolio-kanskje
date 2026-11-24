@@ -127,7 +127,7 @@ call-us-selector {
 /* medieteknikk grid og kort */
 .media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
   column-gap: 2vw;
   row-gap: 0;
   margin: 0 3vw 4vh;
@@ -142,7 +142,6 @@ call-us-selector {
   container: media-card / inline-size;
   position: relative;
   background-color: var(--color-bg-accent);
-  border: 1px solid var(--color-border);
 }
 
 .media-card a.card-link {
@@ -187,7 +186,7 @@ call-us-selector {
 }
 
 .media-card-placeholder-title {
-  font-size: clamp(1.25rem, 6cqi, 1.8rem);
+  font-size: clamp(1.5rem, 5.5cqi, 2.25rem);
   font-weight: 600;
   color: var(--color-text);
 }
@@ -199,25 +198,25 @@ call-us-selector {
 }
 
 .media-card-header {
-  padding: 1.25rem 1.5rem 0.75rem;
+  padding: 1.5rem 1.75rem 0.9rem;
 }
 
 .media-card-title {
   margin: 0;
-  font-size: clamp(1.25rem, 6cqi, 1.75rem);
+  font-size: clamp(1.5rem, 5.5cqi, 2.25rem);
   font-weight: 600;
   color: var(--color-text);
 }
 
 .media-card-role {
   margin: 0.4rem 0 0;
-  font-size: clamp(0.95rem, 4cqi, 1.1rem);
+  font-size: clamp(1.05rem, 3.8cqi, 1.35rem);
   color: var(--color-text-accent);
   line-height: 1.4;
 }
 
 .media-card-footer {
-  padding: 0.75rem 1.5rem 1.5rem;
+  padding: 0.9rem 1.75rem 1.75rem;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -225,8 +224,8 @@ call-us-selector {
 
 .media-card-cta {
   display: inline-block;
-  padding: 0.65rem 1.25rem;
-  font-size: clamp(0.95rem, 4.2cqi, 1.15rem);
+  padding: 0.85rem 1.5rem;
+  font-size: clamp(1.05rem, 4cqi, 1.4rem);
   font-weight: 500;
   color: var(--color-btn-text);
   background-color: var(--color-btn-hover);
