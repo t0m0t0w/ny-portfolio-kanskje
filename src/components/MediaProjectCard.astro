@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  rolle: string;
+  aar?: string;
+  heroImage?: string;
+  heroAlt?: string;
+}
+
+const { title, href, rolle, aar, heroImage = "", heroAlt = "" } = Astro.props;
+---
+
+<article class="media-card">
+  {heroImage ? (
+    <img
+      class="media-card-img"
+      src={heroImage}
+      alt={heroAlt || title}
+      loading="lazy"
+      decoding="async"
+    />
+  ) : (
+    <div class="media-card-placeholder" aria-hidden="true">
+      <span class="media-card-placeholder-title">{title}</span>
+      <span class="media-card-placeholder-hint">bilde kommer</span>
+    </div>
+  )}
+  <hgroup class="media-card-header">
+    <h3 class="media-card-title">
+      <a class="card-link" href={href}>{title}</a>
+    </h3>
+    <p class="media-card-role">
+      {rolle}{aar ? ` · ${aar}` : ""}
+    </p>
+  </hgroup>
+  <footer class="media-card-footer">
+    <span class="media-card-cta" aria-hidden="true">les mer</span>
+  </footer>
+</article>

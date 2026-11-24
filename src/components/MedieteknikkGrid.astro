@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import MediaProjectCard from './MediaProjectCard.astro';
+
+const projects = (await getCollection('medieteknikk')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<section class="media-grid" aria-label="Medieteknikk-prosjekter">
+  {projects.map((entry) => (
+    <MediaProjectCard
+      title={entry.data.title}
+      href={`/prosjekter/${entry.id}/`}
+      rolle={entry.data.rolle}
+      aar={entry.data.aar}
+      heroImage={entry.data.heroImage}
+      heroAlt={entry.data.heroAlt}
+    />
+  ))}
+</section>

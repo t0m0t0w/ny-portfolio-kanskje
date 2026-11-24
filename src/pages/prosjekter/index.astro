@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import MedieteknikkGrid from '../../components/MedieteknikkGrid.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import { PROJECTS } from '../../data/site';
+---
+
+<BaseLayout
+  title="prosjekter - hermann roos"
+  navTitle="prosjekter"
+  description="Oversikt over medieteknikk- og designprosjekter av Hermann Roos."
+>
+  <div class="spacer"></div>
+  <main id="hovedinnhold">
+    <div class="breakup" id="medieteknikk">
+      <h2>medieteknikk</h2>
+      <div class="breakup-line" aria-hidden="true"></div>
+    </div>
+    <MedieteknikkGrid />
+
+    <div class="breakup" id="design">
+      <h2>design &amp; utvikling</h2>
+      <div class="breakup-line" aria-hidden="true"></div>
+    </div>
+    <section class="portfolio-grid">
+      {PROJECTS.map((project) => (
+        <ProjectCard
+          src={project.image}
+          alt={project.alt}
+          sizeClass={project.sizeClass}
+          title={project.title}
+          href={project.href}
+        />
+      ))}
+    </section>
+
+    <Contact />
+    <Footer />
+  </main>
+</BaseLayout>

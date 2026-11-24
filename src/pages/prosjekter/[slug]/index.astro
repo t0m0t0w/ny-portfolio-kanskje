@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import ProjectLayout from '../../../layouts/ProjectLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('medieteknikk');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, rolle, aar, description, heroImage, heroAlt, gallery } =
+  entry.data;
+---
+
+<ProjectLayout
+  title={`${title.toLowerCase()} - hermann roos`}
+  navTitle={`prosjekt - ${title.toLowerCase()}`}
+  description={description}
+  heroSrc={heroImage}
+  heroAlt={heroAlt || title}
+  rolle={rolle}
+  aar={aar}
+  gallery={gallery}
+>
+  <Content />
+</ProjectLayout>

@@ -1,0 +1,134 @@
+---
+import { PROJECTS } from '../data/site';
+import SocialLinks from './SocialLinks.astro';
+import ProjectCard from './ProjectCard.astro';
+import MedieteknikkGrid from './MedieteknikkGrid.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  headerMedia?: "video" | "gif";
+}
+
+const { headerMedia = "video" } = Astro.props;
+const blalange = PROJECTS[0];
+---
+
+<header>
+  <section id="header-innhold">
+    <h2 id="header-tittel">går vg2 medieproduksjon på glemmen vgs</h2>
+    <h2 class="header-tekst">
+      interresert i medieproduksjon
+    </h2>
+    <h2 class="header-tekst">og nestbestleder av blålange</h2>
+    <SocialLinks variant="header" />
+  </section>
+  {headerMedia === "video" ? (
+    <video
+      src="/assets/img/lv_7671632742819761428_20261020100345 (1) (online-video-cutter.com).mp4"
+      id="header-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+    ></video>
+  ) : (
+    <img
+      src="/assets/img/MVI_8534-ezgif.com-censor.gif"
+      id="header-video"
+      alt="Header animasjon"
+      fetchpriority="high"
+      decoding="async"
+    />
+  )}
+</header>
+
+<main id="hovedinnhold">
+  <div class="breakup">
+    <h2>design</h2>
+    <div class="breakup-line" aria-hidden="true"></div>
+  </div>
+  <section class="portfolio-grid">
+    <ProjectCard
+      src={blalange.image}
+      alt={blalange.alt}
+      sizeClass={blalange.sizeClass}
+      title={blalange.title}
+      href={blalange.href}
+    />
+    <ProjectCard
+      src="/assets/img/Artboard 1_1petter.png"
+      alt="Blålange visuell identitet"
+      sizeClass="portfolio-bilde--lang"
+    >
+      utvikling av visuell identitet og markedsføring for blålange
+    </ProjectCard>
+    <ProjectCard
+      src="/assets/img/3c31a03d-acbe-4fda-be23-d136bead0401.webp"
+      alt="Blålange shop design"
+      sizeClass="portfolio-bilde--lang"
+    >
+      merkevare-utvikling, research og produkt-design for
+      <a href="https://shop.blalange.org">shop.blalange.org</a>
+    </ProjectCard>
+    <ProjectCard
+      src="/assets/img/Untitled design.png"
+      alt="Blålange TV design"
+      sizeClass="portfolio-bilde--kort"
+    >
+      visuelt-design, infrastruktur og utvikling for blålange tv
+    </ProjectCard>
+  </section>
+  <div class="breakup" id="medieteknikk">
+    <h2>medieteknikk</h2>
+    <div class="breakup-line" aria-hidden="true"></div>
+  </div>
+  <MedieteknikkGrid />
+  <div class="breakup" id="foto">
+    <h2>foto</h2>
+    <div class="breakup-line" aria-hidden="true"></div>
+  </div>
+  <section class="bilde-seksjon">
+    <article class="bilde-full">
+      <img
+        class="bilde bilde--kort zoomable-image"
+        src="/assets/img/0X6A2820.webp"
+        data-full="/assets/img/0X6A2820.webp"
+        alt="Nærbilde fotografi"
+        loading="lazy"
+        decoding="async"
+      />
+    </article>
+    <article class="bilde-full">
+      <img
+        class="bilde-60 bilde--stor zoomable-image"
+        src="/assets/img/Fin Himmel.jpg"
+        data-full="/assets/img/Fin Himmel.jpg"
+        alt="Himmel fotografi"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        class="bilde-40 bilde--stor zoomable-image"
+        src="/assets/img/0X6A4042.webp"
+        data-full="/assets/img/0X6A4042.webp"
+        alt="Komposisjonsfoto"
+        loading="lazy"
+        decoding="async"
+      />
+    </article>
+    <article class="bilde-full">
+      <img
+        class="bilde bilde--stor zoomable-image"
+        src="/assets/img/0X6A2532.jpg"
+        data-full="/assets/img/0X6A2532.jpg"
+        alt="Landskapsfoto"
+        loading="lazy"
+        decoding="async"
+      />
+    </article>
+  </section>
+  <Contact />
+  <Footer />
+</main>

@@ -1,0 +1,41 @@
+---
+import { SOCIAL_LINKS } from '../data/site';
+
+interface Props {
+  variant: "header" | "menu";
+}
+
+const { variant } = Astro.props;
+---
+
+{variant === "header" ? (
+  <section class="social-links" aria-label="Sosiale lenker">
+    <ul class="social-list" role="list">
+      {SOCIAL_LINKS.map(({ label, href, icon }) => (
+        <li>
+          <a
+            class={`social-link social-link--${icon}`}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="visually-hidden">{label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+) : (
+  <div class="menu-social">
+    {SOCIAL_LINKS.map(({ label, href, icon }) => (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+      >
+        <span class={`social-icon social-icon--${icon}`} aria-hidden="true"></span>
+      </a>
+    ))}
+  </div>
+)}

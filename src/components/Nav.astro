@@ -1,0 +1,57 @@
+---
+import { NAV_LINKS, SITE } from '../data/site';
+import SocialLinks from './SocialLinks.astro';
+
+interface Props {
+  navTitle?: string;
+}
+
+const { navTitle = SITE.defaultNavTitle } = Astro.props;
+---
+
+<nav aria-label="Hovednavigasjon">
+  <button
+    type="button"
+    id="meny-knapp"
+    aria-label="Åpne meny"
+    aria-controls="side-menu"
+    aria-expanded="false"
+  >
+    <span class="visually-hidden">Meny</span>
+  </button>
+  <div id="nav-innhold">
+    <h1 class="nav-title">{navTitle}</h1>
+  </div>
+</nav>
+
+<!-- slide-in meny -->
+<div
+  id="side-menu"
+  class="side-menu"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigasjonsmeny"
+  inert
+>
+  <div class="menu-content">
+    <button
+      type="button"
+      id="close-menu"
+      class="close-menu"
+      aria-label="Lukk meny"
+    >
+      &times;
+    </button>
+    <div class="menu-nav">
+      <ul class="menu-list">
+        {NAV_LINKS.map(({ label, href }) => (
+          <li><a href={href}>{label}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="menu-footer">
+      <SocialLinks variant="menu" />
+    </div>
+  </div>
+</div>
+<div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>

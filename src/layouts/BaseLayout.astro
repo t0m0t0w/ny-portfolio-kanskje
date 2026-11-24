@@ -1,0 +1,73 @@
+---
+import Nav from '../components/Nav.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  title?: string;
+  navTitle?: string;
+  description?: string;
+  theme?: "default" | "flammer";
+}
+
+const {
+  title = SITE.defaultTitle,
+  navTitle = SITE.defaultNavTitle,
+  description = SITE.defaultDescription,
+  theme = "default",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="nb" data-theme={theme === "flammer" ? "flammer" : undefined}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lenis@1.3.13/dist/lenis.css"
+    />
+    <script is:inline src="https://unpkg.com/lenis@1.3.13/dist/lenis.min.js" defer></script>
+    <script is:inline src="/script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/cjc7xhz.css" />
+  </head>
+
+  <body>
+    <a href="#hovedinnhold" class="skip-link visually-hidden">
+      hopp til hovedinnhold
+    </a>
+    <call-us-selector
+      phonesystem-url="https://1468.3cx.cloud"
+      party="LiveChat571611"
+    ></call-us-selector>
+    <script
+      is:inline
+      defer
+      src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js"
+      id="tcx-callus-js"
+      charset="utf-8"
+    ></script>
+    <Nav navTitle={navTitle} />
+    <slot />
+
+    <dialog id="lightbox" class="lightbox" closedby="any" aria-label="Forstørret bilde">
+      <button
+        type="button"
+        class="lightbox-close"
+        aria-label="Lukk bilde"
+        autofocus
+      >
+        &times;
+      </button>
+      <div class="lightbox-loading" aria-live="polite">laster...</div>
+      <img class="lightbox-content" alt="" />
+    </dialog>
+  </body>
+</html>

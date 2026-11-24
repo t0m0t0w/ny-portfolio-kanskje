@@ -1,0 +1,34 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  sizeClass: string;
+  title?: string;
+  href?: string;
+}
+
+const { src, alt, sizeClass, title, href } = Astro.props;
+---
+
+<figure class="portfolio-kort">
+  <img
+    class={`portfolio-bilde ${sizeClass} zoomable-image`}
+    src={src}
+    data-full={src}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+  />
+  {title && href ? (
+    <figcaption class="portfolio-project-figcaption">
+      <h3 class="portfolio-tittel">{title}</h3>
+      <a href={href}>
+        les mer <span class="visually-hidden">om {title}</span>
+      </a>
+    </figcaption>
+  ) : (
+    <figcaption class="portfolio-beskrivelse">
+      <slot />
+    </figcaption>
+  )}
+</figure>

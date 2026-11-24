@@ -1,0 +1,95 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  title: string;
+  navTitle: string;
+  description?: string;
+  heroSrc?: string;
+  heroAlt?: string;
+  rolle?: string;
+  aar?: string;
+  gallery?: GalleryImage[];
+}
+
+const {
+  title,
+  navTitle,
+  description,
+  heroSrc = '',
+  heroAlt = '',
+  rolle,
+  aar,
+  gallery = [],
+} = Astro.props;
+---
+
+<BaseLayout title={title} navTitle={navTitle} description={description}>
+  {heroSrc ? (
+    <article class="bilde-full">
+      <img
+        class="bilde bilde--middels zoomable-image"
+        src={heroSrc}
+        data-full={heroSrc}
+        alt={heroAlt || title}
+        fetchpriority="high"
+        decoding="async"
+      />
+    </article>
+  ) : (
+    <div class="spacer"></div>
+  )}
+  <main id="hovedinnhold">
+    <p class="project-back">
+      <a href="/prosjekter/">← tilbake til prosjekter</a>
+    </p>
+
+    {(rolle || aar) && (
+      <dl class="project-meta">
+        {rolle && (
+          <div class="project-meta-item">
+            <dt>rolle</dt>
+            <dd>{rolle}</dd>
+          </div>
+        )}
+        {aar && (
+          <div class="project-meta-item">
+            <dt>år</dt>
+            <dd>{aar}</dd>
+          </div>
+        )}
+      </dl>
+    )}
+
+    <section class="langtekst">
+      <slot />
+    </section>
+
+    {gallery.length > 0 && (
+      <section class="project-gallery" aria-label="Prosjektbilder">
+        {gallery.map((item) => (
+          <figure class="project-gallery-item">
+            <img
+              class="project-gallery-img zoomable-image"
+              src={item.src}
+              data-full={item.src}
+              alt={item.alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        ))}
+      </section>
+    )}
+
+    <Contact />
+    <Footer />
+  </main>
+</BaseLayout>
